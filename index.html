@@ -14,33 +14,66 @@ When they do click one, update the player's score counter.
 
 <!DOCTYPE html>
 <html>
-<head>
-	
-	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--     Local CSS style sheet
+ -->   
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-	<title>Game of Games</title>
-	
-</head>
-<body>
 
-<!-- 
-1.) I want to bring in nice background that fits the screen
-2.) Logo header to display the name of the game 
-3.) Thumbnail icons 
-4.) Game information
+<head>
+
+    <div class="jumbotron">
+          <h1>Crystal Collector!</h1> 
+          <p><a class="btn btn-primary btn-lg" href="#" role="button"></a></p>
+        </div>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+</head>
+
+<body>
+<!-- 1.) I want to bring in nice background that fits the screen -->
+
+<div id="instructions">
+      
+  <article>
+      <h1>Google Chrome</h1>
+        <p>You will be given a random number at the  start of the game.
+          There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
+          You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.
+          The value of eacch crystal is hidden from you until you click on it.
+          Each time when the game starts, the game will change the values of each crystal.</p>
+</article>
+
+
+    </div>
+<!-- 2.) Logo header to display the name of the game 
+3.) Thumbnail icons  -->
+	<div class="crystals">
+  		<div class="col-xs-6 col-md-3">
+    		<a class="instagram">
+      		<img src="assets/images/instagram.png" alt="">
+      		  </a>
+      		    <a class="snapchat">
+        		    <img src="assets/images/snapchat.gif" alt="">
+      		        </a>
+    		      <a class="apple">
+      		  <img src="assets/images/apple.png" alt="">
+    	     </a>
+    		<a class="twitter">
+      <img src="assets/images/twitter.png" alt="">
+    </a>
+  </div>
+<!-- 4.) Game information
 5.) BootStrap for styling
 6.) CSS style sheet for overwiting Bootstrap
-7.) Write functions to simplify code for reuse 
+7.) Write functions to simplify code for reuse  -->
 
 
 
-
- -->
 
 </body>
 
