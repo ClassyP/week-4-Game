@@ -1,84 +1,126 @@
-<!-- 1.) The player will have to guess the answer, just like in Hangman. This time, though, the player will guess with numbers instead of letters. 
-Here's how the app works:
-2.)There will be four crystals displayed as buttons on the page.
-The player will be shown a random number at the start of the game.
-3.)When the player clicks on a crystal, it will add a specific amount of points to the player's total score. 
-4.)Your game will hide this amount until the player clicks a crystal.
-When they do click one, update the player's score counter.
-5.)The player wins if their total score matches the random number from the beginning of the game.
-		The player loses if their score goes above the random number.
-			The game restarts whenever the player wins or loses.
-6.)When the game begins again, the player should see a new random number. Also, all the crystals will have four new hidden values. Of course, the user's score (and score counter) will reset to zero.
-7.)The app should show the number of games the player wins and loses. To that end, do not refresh the page as a means to restart the game. -->
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+		<title>Crystal Collector</title>
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!--     Local CSS style sheet
- -->   
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
-<head>
-
-    <div class="jumbotron">
-          <h1>Crystal Collector!</h1> 
-          <p><a class="btn btn-primary btn-lg" href="#" role="button"></a></p>
-        </div>
-    <script type="text/javascript" src="assets/javascript/game.js"></script>
-</head>
-
-<body>
-<!-- 1.) I want to bring in nice background that fits the screen -->
-
-<div id="instructions">
-      
-  <article>
-      <h1>Google Chrome</h1>
-        <p>You will be given a random number at the  start of the game.
-          There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
-          You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.
-          The value of eacch crystal is hidden from you until you click on it.
-          Each time when the game starts, the game will change the values of each crystal.</p>
-</article>
-
-    </div>
-<!-- 2.) Logo header to display the name of the game 
-3.) Thumbnail icons  -->
-    	<div class="crystals">
-      		<div class="col-xs-6 col-md-3">
-        		<a class="instagram">
-          		<img src="assets/images/instagram.png" alt="">
-          		  </a>
-          		    <a class="snapchat">
-            		    <img src="assets/images/snapchat.gif" alt="">
-          		        </a>
-        		      <a class="apple">
-          		  <img src="assets/images/apple.png" alt="">
-        	     </a>
-        		<a class="twitter">
-          <img src="assets/images/twitter.png" alt="">
-        </a>
-      </div>
-
-    <p id="previous"></p>
-    <p id="win">Wins: </p>
-    <p id="lost">Loses: </p>
-<!-- 4.) Game information
-5.) BootStrap for styling
-6.) CSS style sheet for overwiting Bootstrap
-7.) Write functions to simplify code for reuse  -->
+	</head>
+	<body>
+		
+		<div class="container">
+			
+			<!-- Crystal Collector Jumbotron -->
+			<div class="jumbotron" style="background-color: purple; color: white;">
+				<div class="container">
+					<h1 class="text-center"><strong>Crystal Collector</strong></h1>
+				</div>
+			</div>
 
 
+			<!-- Instructions -->
+			<div class="row">
+
+				<!-- Instructions Container -->
+				<div class="col-lg-12">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title text-center">Instructions</h3>
+						</div>
+						<div class="panel-body">
+							<p><small>You will be given a random number at the start of the game. There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score. You win the game by matching your total score to random number, you lose the game if your total score goes above the random number. The value of each crystal is hidden from you until you click on it. Each time when the game starts, the game will change the values of each crystal</small></p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Scores and Crystals  -->
+			<div class="row">
+				
+				<!-- Target Score -->
+				<div class="col-lg-3">
+					
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title text-center">Target Score</h3>
+						</div>
+						<div class="panel-body">
+							<h3 class="text-center" id="target-score"></h3>
+						</div>
+					</div>
+				</div>
+
+				<!-- Your Score -->
+				<div class="col-lg-3">
+					
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title text-center">Your Score</h3>
+						</div>
+						<div class="panel-body">
+							<h3 class="text-center" id="your-score"></h3>
+						</div>
+					</div>
+				</div>
+
+				<!-- Crystals -->
+				<div class="col-lg-6">
+
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title text-center">Crystal Selection</h3>
+						</div>
+						<div class="panel-body text-center">
+							<img src="images/blue.png" alt="" id="blue">
+							<img src="images/green.png" alt="" id="green">
+							<img src="images/red.png" alt="" id="red">
+							<img src="images/yellow.png" alt="" id="yellow">
+						</div>
+					</div>
+
+				</div>
+
+			</div>
 
 
-</body>
+			<!-- Counters Row -->
+			<div class="row">
+				
+				<!-- Win Count -->
+				<div class="col-lg-6">				
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title text-center">Win Count</h3>
+						</div>
+						<div class="panel-body">
+							<h3 class="text-center" id="win-count">0</h3>
+						</div>
+					</div>
+				</div>
 
+				<!-- Loss Count -->
+				<div class="col-lg-6">
+					
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title text-center">Loss Count</h3>
+						</div>
+						<div class="panel-body">
+							<h3 class="text-center" id="loss-count">0</h3>
+						</div>
+					</div>
 
+				</div>
+			</div>
+		</div>
+
+		<!-- JQuery -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- Main Game Logic  -->
+		<script src="logic.js"></script>
+	</body>
 </html>
